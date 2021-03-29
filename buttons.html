@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transitions of Buttons</title>
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin:0;
+			background-color: teal;
+		}
+		.button-container {
+			padding: 20px;
+		}
+		button {
+			padding: 1rem 2rem;
+			color: teal;
+			margin:20px;
+			border: none;
+			cursor: pointer;
+			transition-duration: .4s;
+			font-size: 1.1em;
+		}
+		#first {
+			background-color: #fff;
+			border: 2px solid transparent;
+		}
+		#first:hover {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid #fff;
+		}
+		#second {
+			border: 2px solid transparent;
+			background-color: transparent;
+			color: #fff;
+		}
+		#second {
+			position: relative;
+		}
+
+		#second:hover:before {
+			width: 100%;
+		}
+		#second:before {
+			content: '';
+			width: 0%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transition: width .3s;
+			background-color: #fff;
+		}
+		#second:after {
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			height: 0%;
+			width: 3px;
+			bottom: 0;
+			right: 0;
+			transition: height .3s;
+		}	
+		#second:hover:after {
+			height: 100%;
+		}
+		#third {
+			background-color: transparent;
+			color: #fff;
+			position: relative;
+		}
+		#third:before {
+			content: '';
+			background-color: #fff;
+			width: 0%;
+			height: 3px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			transition: width .3s;
+		}
+		#third:hover:before {
+			width: 100%;
+		}
+		#third:hover {
+			letter-spacing: 3px;
+		}
+		#third:after {
+			content: '';
+			background-color: #fff;
+			width: 0%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transition: width .3s; 
+		}
+		#third:hover:after {
+			width: 100%;
+		}
+		#forth {
+			background-color: transparent;
+			color: #fff;
+			position: relative;
+			
+		}
+		#forth:before {
+			content: '';
+			background-color: transparent;
+			width:20px;
+			height: 20px; 
+			border: 2px solid #fff;
+			position: absolute;
+			top:0;
+			right: 0;
+			border-color: #fff #fff transparent transparent;
+			transition-property: width, height;
+			transition-duration: .3s;
+		}
+		#forth:after {
+			content: '';
+			background-color: transparent;
+			width: 20px;
+			height: 20px;
+			border: 2px solid #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border-color: transparent transparent #fff #fff; 
+			transition-property: width, height;
+			transition-duration: .3s;
+		}
+		#forth:hover:before,
+		#forth:hover:after {
+			width: 100%;
+			height: 100%;
+			
+		}
+		#fifth {
+			background-color: transparent;
+			color: #fff;
+			border:2px solid #fff;
+			position: relative;
+			
+		}
+		#fifth:hover {
+			box-shadow: inset 0px 0px  15px #fff;
+		}
+		#fifth:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: transform .3s,
+			border-color .3s;
+			border: 1px solid #fff;
+		}
+		#fifth:hover:before {
+			transform: scale(1.2);
+			border-color: transparent;
+		}
+		#six {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid #fff;
+			position: relative;
+
+		}
+		#six:before {
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			width: 0%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			transition: width .3s;
+			z-index: -1;
+		}
+		#six:hover:before {
+			width: 100%;
+		}
+		#six:hover {
+			color: teal;
+		}
+		#seven {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid #fff;
+			position: relative;
+		}
+		#seven:hover {
+			color: teal;
+		}
+		#seven:before {
+			content: '';
+			width: 0%;
+			height: 100%;
+			position: absolute;
+			background-color: #fff;
+			top: 0;
+			right: 0;
+			z-index: -1;
+			transition: width .3s
+		}
+		#seven:hover:before {
+			width: 100%;
+			
+		}
+		#eight {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid #fff;
+			position: relative;
+		}
+		#eight:hover {
+			color: teal;
+		}
+		#eight:before {
+			content: '';
+			background-color: #fff;
+			width: 100%;
+			height: 0%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: -1;
+			transition: height .3s;
+		}
+		#eight:hover:before,
+		#eight:hover:after {
+			height: 50%;
+		}
+		#eight:after {
+			content: '';
+			background-color: #fff;
+			width: 100%;
+			height: 0%;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: -1;
+			transition: height .3s;
+		}
+		#nine {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid #fff;
+			transition: border-radius .3s;
+		}
+		#nine:hover {
+			border-radius: 50px;
+		}
+		#ten {
+			background-color: transparent; 
+			border: 2px solid #fff;
+			color: #fff;
+			position: relative;
+			overflow: hidden;
+		}
+		#ten:before {
+			content: '';
+			background-color: #fff;
+			width: 0%;
+			height: 0%;
+			position: absolute;
+			top:  0;
+			left: 0;
+			border-radius: 40%;
+			z-index: -1;
+			transform: rotate(30deg);
+			transition-property: width, height;
+			transition-duration: 0.3s;
+		}
+		#ten:hover {
+			color: teal;
+		}
+		#ten:hover:before {
+			width: 200%;
+			height: 400%;
+		}
+	</style>
+</head>
+<body>
+	<div class="button-container">
+		<button id="first">Hover Me</button>
+		<button id="second">Hover Me</button>
+		<button id="third">Hover Me</button><br>
+		<button id="forth">Hover Me</button>
+		<button id="fifth">Hover Me</button>
+		<button id="six">Hover Me</button><br>
+		<button id="seven">Hover Me</button>
+		<button id="eight">Hover Me</button>
+		<button id="nine">Hover Me</button><br>
+		<button id="ten">Hover Me</button>
+	</div>
+</body>
+</html>
